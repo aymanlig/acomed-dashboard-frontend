@@ -1,0 +1,186 @@
+/* إعدادات عامة */
+.login-container * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* الخلفية الرمادية الداكنة */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #1a1a1a;
+    background-image: radial-gradient(circle at top right, #2a2a2a, #121212);
+}
+
+/* الأنيماسيون ديال الدخول (Fade & Slide Up) */
+@keyframes slideUpFade {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* المربع الزاجي ديال اللوجين */
+.login-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+    animation: slideUpFade 0.8s ease-out;
+}
+
+.login-card h2 {
+    color: #ffffff;
+    font-size: 28px;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+/* الخانات ديال الإدخال */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group i {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #888;
+    transition: 0.3s;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px 15px 15px 45px;
+    background: transparent;
+    border: 2px solid #555;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #00ff88;
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
+}
+
+.input-group input:focus + i,
+.input-group input:valid + i {
+    color: #00ff88;
+}
+
+/* خيارات تذكرني و نسيت الكلمة */
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.options label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.options input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: #00ff88;
+}
+
+.options a {
+    color: #aaa;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.options a:hover {
+    color: #00ff88;
+}
+
+/* البوطونة الخضراء */
+.btn-login {
+    width: 100%;
+    padding: 15px;
+    background: #00ff88;
+    color: #121212;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+}
+
+.btn-login:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 255, 136, 0.5);
+    background: #00e67a;
+}
+
+/* الفاصل (OR) */
+.divider {
+    text-align: center;
+    margin: 25px 0;
+    color: #666;
+    font-size: 14px;
+    position: relative;
+}
+
+/* السوشيال ميديا */
+.social-login {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.social-login a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #333;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.social-login a:hover {
+    background: #00ff88;
+    color: #121212;
+    transform: scale(1.1);
+}
+
+/* تسجيل حساب جديد */
+.register-link {
+    text-align: center;
+    color: #aaa;
+    font-size: 14px;
+}
+
+.register-link a {
+    color: #00ff88;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}

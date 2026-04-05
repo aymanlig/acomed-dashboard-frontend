@@ -1,0 +1,168 @@
+/* ================================================================
+   API STATUS INDICATOR (TOPBAR)
+   ================================================================ */
+.topbar-api-status {
+  display: none;
+  align-items: center;
+  gap: 0.375rem;
+}
+@media (min-width: 640px) { .topbar-api-status { display: flex; } }
+
+.api-status-dot {
+  width: 0.5rem; height: 0.5rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.api-status-ok      { background: #10b981; box-shadow: 0 0 0 3px rgba(16,185,129,0.2); }
+.api-status-loading { background: #f59e0b; animation: statusPulse 1.2s ease-in-out infinite; }
+.api-status-error   { background: #ef4444; box-shadow: 0 0 0 3px rgba(239,68,68,0.2); }
+.api-status-empty   { background: #94a3b8; }
+
+.topbar-api-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+/* ================================================================
+   LOADING SKELETON
+   ================================================================ */
+.loading-skeleton { animation: viewEnter 0.3s ease-out; }
+.loading-header   { margin-bottom: 1.5rem; }
+
+.skeleton-line {
+  border-radius: 6px;
+  background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+html.dark .skeleton-line {
+  background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
+  background-size: 200% 100%;
+}
+
+.skeleton-title    { height: 2rem;  width: 40%; margin-bottom: 0.75rem; }
+.skeleton-subtitle { height: 1rem;  width: 65%; }
+
+.skeleton-map {
+  width: 100%;
+  aspect-ratio: 10 / 6.5;
+  border-radius: 1rem;
+  border: 1px solid #e2e8f0;
+  background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  margin-bottom: 1rem;
+}
+html.dark .skeleton-map {
+  border-color: #1e293b;
+  background: linear-gradient(90deg, #0f172a 25%, #1e293b 50%, #0f172a 75%);
+  background-size: 200% 100%;
+}
+
+.skeleton-legend {
+  display: flex; flex-wrap: wrap; gap: 1rem;
+  padding: 0.75rem 1rem; border-radius: 0.75rem;
+  background: white; border: 1px solid #e2e8f0;
+}
+html.dark .skeleton-legend { background: #0f172a; border-color: #1e293b; }
+
+.skeleton-dot-row { display: flex; align-items: center; gap: 0.5rem; }
+
+.skeleton-dot {
+  width: 0.625rem; height: 0.625rem;
+  border-radius: 50%; background: #e2e8f0; flex-shrink: 0;
+}
+html.dark .skeleton-dot { background: #334155; }
+.skeleton-short { height: 0.75rem; width: 5rem; }
+
+/* ================================================================
+   API ERROR BANNER
+   ================================================================ */
+.api-error-banner {
+  display: flex; flex-direction: column; align-items: flex-start;
+  gap: 1rem; padding: 1.5rem; border-radius: 1rem;
+  background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.25);
+  animation: viewEnter 0.3s ease-out;
+}
+@media (min-width: 640px) { .api-error-banner { flex-direction: row; align-items: center; } }
+
+.api-error-icon { font-size: 2rem; flex-shrink: 0; }
+.api-error-body { flex: 1; }
+
+.api-error-title {
+  display: block; font-size: 1rem; font-weight: 700;
+  color: #dc2626; margin-bottom: 0.375rem;
+}
+html.dark .api-error-title { color: #f87171; }
+
+.api-error-text { font-size: 0.875rem; color: #475569; line-height: 1.5; margin-bottom: 0.5rem; }
+html.dark .api-error-text { color: #94a3b8; }
+
+.api-error-hint { font-size: 0.8rem; color: #64748b; line-height: 1.5; }
+html.dark .api-error-hint { color: #475569; }
+
+.api-error-text code, .api-error-hint code {
+  background: rgba(239,68,68,0.1); color: #dc2626;
+  padding: 0.1em 0.4em; border-radius: 4px;
+  font-size: 0.8125rem; font-family: ui-monospace, Consolas, monospace;
+}
+html.dark .api-error-text code, html.dark .api-error-hint code {
+  background: rgba(248,113,113,0.1); color: #fca5a5;
+}
+
+.api-error-retry {
+  flex-shrink: 0; padding: 0.5rem 1.25rem; border-radius: 0.5rem;
+  border: 1px solid rgba(239,68,68,0.35); background: rgba(239,68,68,0.08);
+  color: #dc2626; font-size: 0.875rem; font-weight: 600; font-family: inherit;
+  cursor: pointer; transition: background 0.15s, transform 0.15s;
+}
+.api-error-retry:hover { background: rgba(239,68,68,0.15); transform: translateY(-1px); }
+html.dark .api-error-retry { color: #f87171; border-color: rgba(248,113,113,0.3); background: rgba(248,113,113,0.06); }
+
+/* ================================================================
+   EMPTY DB BANNER
+   ================================================================ */
+.empty-db-banner {
+  display: flex; flex-direction: column; align-items: flex-start;
+  gap: 1.25rem; padding: 2rem; border-radius: 1rem;
+  background: rgba(16,185,129,0.05); border: 1px solid rgba(16,185,129,0.2);
+  animation: viewEnter 0.35s ease-out;
+}
+@media (min-width: 640px) { .empty-db-banner { flex-direction: row; align-items: center; } }
+
+.empty-db-icon { font-size: 2.5rem; flex-shrink: 0; }
+.empty-db-body { flex: 1; }
+
+.empty-db-title {
+  display: block; font-size: 1rem; font-weight: 700;
+  color: #065f46; margin-bottom: 0.5rem;
+}
+html.dark .empty-db-title { color: #34d399; }
+
+.empty-db-text { font-size: 0.875rem; color: #475569; line-height: 1.5; }
+html.dark .empty-db-text { color: #94a3b8; }
+
+.empty-db-seed-btn {
+  flex-shrink: 0; padding: 0.75rem 1.5rem; border-radius: 0.625rem;
+  border: none; background: linear-gradient(135deg, #10b981, #059669);
+  color: white; font-size: 0.9rem; font-weight: 700; font-family: inherit;
+  cursor: pointer; box-shadow: 0 4px 15px rgba(16,185,129,0.3);
+  transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s; white-space: nowrap;
+}
+.empty-db-seed-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(16,185,129,0.4); }
+.empty-db-seed-btn:disabled { opacity: 0.65; cursor: not-allowed; transform: none; }
+
+/* ================================================================
+   EXTRA ANIMATIONS
+   ================================================================ */
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1;   transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.85); }
+}
